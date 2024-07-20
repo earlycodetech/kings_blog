@@ -1,0 +1,30 @@
+.hero {
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 31rem;
+    object-fit: cover;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    color: #ffffff;
+    font-weight: 900;
+    text-shadow: -3px 5px 5px #808080;
+    text-transform: capitalize;
+}
+
+.post-card .card-img-top {
+    height: 15rem;
+    object-fit: cover;
+}
+
+.post-card .card-body {
+    
+}
