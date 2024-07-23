@@ -8,6 +8,7 @@ class PagesController extends Controller
 {
     public function home_page()
     {
-        return view('welcome');
+        $title = "King's Blog - Get the latest information";
+        return view('welcome', compact('title'));
     }
 }
