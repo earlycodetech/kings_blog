@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ route('home.page') }}">
             <img src="{{ asset('logo.png') }}" width="50" alt="">
             {{ config('app.name', 'Laravel') }}
         </a>
@@ -12,7 +12,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="{{ route('home.page') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="/" class="nav-link">About</a>
