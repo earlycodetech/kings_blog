@@ -10,6 +10,12 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        $title = "My Posts";
+        return view('posts.all-posts', compact('title'));
+    }
+    
     public function create()
     {
         $title =  "Create Post";
