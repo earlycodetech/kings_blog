@@ -213,8 +213,6 @@ const editorConfig = {
 			'resizeImage'
 		]
 	},
-	initialData:
-		'',
 	link: {
 		addTargetToExternalLinks: true,
 		defaultProtocol: 'https://',
