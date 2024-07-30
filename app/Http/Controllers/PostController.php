@@ -125,4 +125,12 @@ class PostController extends Controller
         Alert::success('Post Updated', "Your post has been updated successfully");
         return back();
     }
+    
+    
+    public function delete($id)
+    {
+        Post::where('id', '=', $id)->delete();
+        Alert::success('Post Deleted', "Your post has been deleted successfully");
+        return back();
+    }
 }

@@ -23,4 +23,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
 
     Route::patch('post/{id}/edit', [PostController::class, 'update'])->name('post.update');
+
+    Route::middleware('check.admin')->delete('post/{id}/delete', [PostController::class, 'delete'])->name('post.delete');
 });

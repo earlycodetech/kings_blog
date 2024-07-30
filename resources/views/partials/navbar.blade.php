@@ -47,6 +47,12 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a href="{{ route('post.create') }}" class="dropdown-item">
+                                Create Post
+                            </a>
+                            <a href="{{ route('post.index') }}" class="dropdown-item">
+                                All Posts
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

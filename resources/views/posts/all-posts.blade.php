@@ -26,6 +26,13 @@
                                         Edit Post
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
+                                    <form 
+                                    onsubmit="return confirm('Are you sure?')"
+                                    action="{{ route('post.delete', ['id' => $post->id]) }}" 
+                                        method="post">
+                                        @csrf @method('DELETE')
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
