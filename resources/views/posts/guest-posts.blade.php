@@ -1,18 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <section>
-        <div class="container-fluid">
-            <div class="hero">
-                <img src="{{ asset('bg.jpg') }}" alt="">
-                <h1>Welcome to King Blog</h1>
-            </div>
-        </div>
-    </section>
+        <div class="container my-5">
+            <h1>Our Posts</h1>
 
-    <section>
-        <div class="container mt-5">
-            <h3 class="text-center">Latest Post</h3>
-            <div class="row">
+            <div class="row mt-5">
                 @forelse ($posts as $post)
                     <div class="col-md-6 col-lg-4 mb-4 post-card">
                         <div class="card shadow">
@@ -37,12 +29,11 @@
                         Coming Soon...
                     </p>
                 @endforelse
+            </div>
 
-                <div class="text-center my-5">
-                    <a href="{{ route('all.posts.page') }}" class="btn btn-warning">
-                        View All Posts
-                    </a>
-                </div>
+            <div class="p-2">
+               {!! $posts->links('pagination::bootstrap-5') !!}
+               {{-- {!! $posts->links('pagination::simple-bootstrap-5') !!} --}}
             </div>
         </div>
     </section>

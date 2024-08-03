@@ -25,6 +25,9 @@
     object-fit: cover;
 }
 
-.post-card .card-body {
-    
+
+.post_cover {
+    height: 25rem;
+    object-fit: cover;
+    object-position: center;
 }
