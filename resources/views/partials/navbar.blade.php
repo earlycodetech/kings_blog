@@ -15,6 +15,11 @@
                     <a href="{{ route('home.page') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('all.posts.page') }}" class="nav-link">
+                        Latest Posts
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
