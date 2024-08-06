@@ -26,6 +26,11 @@ class Post extends Model
     protected $casts = [
         'likes' => "integer"
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'post_id');
+    }
 }
 
 

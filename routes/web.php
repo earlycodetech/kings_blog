@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [PagesController::class, 'home_page'])->name('home.page');
 Route::get('all-posts', [PagesController::class, 'show_posts'])->name('all.posts.page');
 Route::get('read-post/{slug}', [PagesController::class, 'read_post'])->name('read.post.page');
+Route::get('read-post/{slug}', [PagesController::class, 'read_post'])->name('read.post.page');
 
 Auth::routes();
 
