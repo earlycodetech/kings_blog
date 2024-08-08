@@ -7,7 +7,8 @@
                     <h1 class="text-center">Contact Us</h1>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{ route('contact.send') }}" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" id="name">

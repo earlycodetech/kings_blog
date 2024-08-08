@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PagesController extends Controller
@@ -59,6 +61,19 @@ class PagesController extends Controller
     }
 
     public function send_message(Request $request) {
+        $data = $request->validate([
+            'name' => "required|string",
+            'email' => "required|string|email",
+            'message' => "required|string|max:1000"
+        ]);
 
+        $send = Mail::to('emmanuel.odobo@earlycode.net')->send(new ContactMail($data));
+        if ($send) {
+           Alert::success('Mail has been sent');
+        }else{
+            Alert::error('Failed to send mail');
+        }
+
+        return back();
     }
 }
