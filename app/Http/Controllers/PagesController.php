@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PagesController extends Controller
 {
@@ -13,11 +15,11 @@ class PagesController extends Controller
         // $posts = Post::all()->sortBy('title');
         // $posts = Post::all()->sortByDesc('title');
         $posts = Post::all()->sortByDesc('created_at')->take(6);
-    
+
         return view('welcome', compact('title', 'posts'));
     }
 
-    public function show_posts ()
+    public function show_posts()
     {
         // $posts = Post::latest()->take(2)->get();
         $posts = Post::latest()->paginate(6);
@@ -32,4 +34,28 @@ class PagesController extends Controller
         $title = $post->title;
         return view('posts.read', compact('post', 'title'));
     }
+
+    public function add_comment(Request $request, $id)
+    {
+        Post::findOrFail($id);
+        $request->validate([
+            'name' => "required|string",
+            'comment' => "required|string",
+        ]);
+
+        Comment::create([
+            'post_id' => $id,
+            'name' => $request->input('name'),
+            'comment' => $request->input('comment')
+        ]);
+
+        Alert::success('Comment Submited');
+        return back();
+    }
+
+    public function show_contact()
+    {
+        return view('contact');
+    }
 }
+

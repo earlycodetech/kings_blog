@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [PagesController::class, 'home_page'])->name('home.page');
 Route::get('all-posts', [PagesController::class, 'show_posts'])->name('all.posts.page');
 Route::get('read-post/{slug}', [PagesController::class, 'read_post'])->name('read.post.page');
-Route::get('read-post/{slug}', [PagesController::class, 'read_post'])->name('read.post.page');
+Route::post('comment/{id}', [PagesController::class, 'add_comment'])->name('add.new.comment');
+Route::get('contact-us', [PagesController::class, 'show_contact'])->name('contact');
 
 Auth::routes();
 

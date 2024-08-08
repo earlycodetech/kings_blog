@@ -19,20 +19,26 @@
 
             <div class="card shadow border-0 my-5 mx-auto" style="max-width: 780px;">
                 <div class="card-header">
-                    <form action="" method="POST">
+                    <form action="{{ route('add.new.comment', ['id' => $post->id]) }}" method="POST">
                         @csrf
 
                         <div class="mb-3">
                             <label for="" class="form-label">Full name</label>
                             <input name="name" id="" rows="5" class="form-control">
+                            @error('name')
+                                <p class="text-danger small fw-bold"> {{ $message }} </p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Write Comment</label>
                             <textarea name="comment" id="" rows="5" class="form-control"></textarea>
+                            @error('comment')
+                                <p class="text-danger small fw-bold"> {{ $message }} </p>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
-                            <button class="btn btn-primary" > Save</button>
+                            <button class="btn btn-primary"> Save</button>
                         </div>
                     </form>
                 </div>
@@ -42,13 +48,18 @@
                     <h4>Comments</h4>
                     <!-- Some borders are removed -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <p class="">John Doe -  <small>3 Seconds </small></p>
+                        @forelse ($post->comments()->latest()->get() as $comment)
+                            <li class="list-group-item">
+                                <p class=""> {{ $comment->name }} - <small> {{ $comment->created_at->diffForHumans() }} </small></p>
 
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, recusandae.
-                            </p>
-                        </li>
+                                <p>
+                                   {{ $comment->comment }}
+                                </p>
+                            </li>
+                        @empty
+                            <li>Be the first to comment</li>
+                        @endforelse
+
                     </ul>
 
                 </div>
