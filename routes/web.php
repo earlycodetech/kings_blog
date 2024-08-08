@@ -11,6 +11,7 @@ Route::get('all-posts', [PagesController::class, 'show_posts'])->name('all.posts
 Route::get('read-post/{slug}', [PagesController::class, 'read_post'])->name('read.post.page');
 Route::post('comment/{id}', [PagesController::class, 'add_comment'])->name('add.new.comment');
 Route::get('contact-us', [PagesController::class, 'show_contact'])->name('contact');
+Route::post('contact-us', [PagesController::class, 'send_message'])->name('contact.send');
 
 Auth::routes();
 

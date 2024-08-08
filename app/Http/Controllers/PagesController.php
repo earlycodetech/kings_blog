@@ -57,5 +57,8 @@ class PagesController extends Controller
     {
         return view('contact');
     }
-}
 
+    public function send_message(Request $request) {
+
+    }
+}
